@@ -13,10 +13,10 @@ class Event_listeners:
                 text = r.recognize_google(audio)
                 text = text.lower()
                 print("You said: {}".format(text))
+                self.text = text
                 unrecognized = False
             except:
                 unrecognized = True
-        self.text = text
         self.unrecognized = unrecognized
 
     def event_listener(self):

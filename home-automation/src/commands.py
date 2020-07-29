@@ -9,7 +9,7 @@ def convert(lst):
 class UserInput:
     def convert_input(self, args):
         if args[0] == 'search':
-            if args[1] == None:
+            if len(args) == 1:
                 response = 'what do you want to search'
                 return response
             else:
@@ -21,6 +21,7 @@ class UserInput:
     def search(self, param_query):
         open_query = f"https://www.google.com/search?q={param_query}"
         webbrowser.open_new_tab(open_query)
+
         
         
 
