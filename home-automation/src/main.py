@@ -1,5 +1,4 @@
 import speech_recognition as sr
-import webbrowser
 import win32com.client as wincl
 import commands as cm
 
@@ -25,7 +24,7 @@ class Event_listeners:
                 listen = 0
             else:
                 listen = 1
-            self.listen = listen
+        self.listen = listen
 
     def event_handler(self):
         if self.listen == 0:
@@ -35,8 +34,9 @@ class Event_listeners:
             comms.convert_input(output)
 
     def end_program(self):
-        if self.text.startswith('exit'):
-            exit()
+        if self.listen == 0:
+            if self.text.startswith('exit'):
+                exit()
 
 run = True
 while True:

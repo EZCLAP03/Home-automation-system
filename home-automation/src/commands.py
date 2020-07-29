@@ -1,5 +1,3 @@
-import speech_recognition as sr
-import commands
 import webbrowser
 import win32com.client as wincl
 
