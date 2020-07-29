@@ -3,6 +3,9 @@ import commands
 import webbrowser
 import win32com.client as wincl
 
+def convert(lst): 
+    return ([i for item in lst for i in item.split()]) 
+
 class UserInput:
     def __init__(self, recognizer, source, text_output):
         source = sr.Microphone()
@@ -14,8 +17,13 @@ class UserInput:
         self.recognizer = recognizer
         self.text_output = text_output
     
+    def convert_input(self, list = args):
+        if args[0] == 'search':
+            query = args[1]
+            coverter = UserInput()
+            converter.search(query)
     def search(self, param_query):
-        open_query = f"https://www.google.com/search?q={param_query}&rlz=1C1APWK_enIN766IN766&oq=yo+&aqs=chrome..69i57j0j69i59l2j69i60l4.1394j0j7&sourceid=chrome&ie=UTF-8"
+        open_query = f"https://www.google.com/search?q={param_query}"
         webbrowser.open_new_tab(open_query)
         
         
