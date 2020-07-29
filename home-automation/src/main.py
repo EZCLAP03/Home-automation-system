@@ -1,7 +1,7 @@
 import speech_recognition as sr
 import webbrowser
 import win32com.client as wincl
-import commands as cm 
+import commands as cm
 
 class Event_listeners:
     def __init__(self):
@@ -13,22 +13,26 @@ class Event_listeners:
                 text = r.recognize_google(audio)
                 text = text.lower()
                 print("You said: {}".format(text))
-                self.text = text
+                unrecognized = False
             except:
-                print("Unrecognized")
+                unrecognized = True
+        self.text = text
+        self.unrecognized = unrecognized
 
     def event_listener(self):
-        if self.text.startswith('jarvis'):
-            listen = 0
-        else:
-            listen = 1
-        self.listen = listen
+        if self.unrecognized == False:
+            if self.text.startswith('jarvis'):
+                listen = 0
+            else:
+                listen = 1
+            self.listen = listen
 
     def event_handler(self):
         if self.listen == 0:
             args = self.text.split('jarvis')
             output = cm.convert(args)
-            print(output)
+            comms = cm.UserInput()
+            comms.convert_input(output)
 
     def end_program(self):
         if self.text.startswith('exit'):
@@ -39,7 +43,6 @@ while True:
     p = Event_listeners()
     p.event_listener()
     p.event_handler()
-    p.convert_input()
     p.end_program()
 
 
