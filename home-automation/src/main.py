@@ -1,4 +1,3 @@
-import comms
 import speech_recognition as sr
 import webbrowser
 import win32com.client as wincl
@@ -16,15 +15,23 @@ class Event_listeners:
                 self.text = text
             except:
                 print("Unrecognized")
-            if text.startswith('hello'):
-                handler = 0
+
+    def event_listener(self):
+        caller = ['chika', 'bonny', 'jarvis', 'friday']
+        for elem in caller:
+            if self.text.startswith(elem):
+                listen = 0
+                print('listener is 0')
+                return listen
             else:
-                handler = 1
-            self.handler = handler
+                listen = 1
+                return listen
+
     def event_handler(self):
-        if self.handler == 0:
-            print('works till here')
-            args = self.text.split('hello ')
+        l = Event_listeners()
+        listener = l.event_listener()
+        if listener == 0:
+            args = self.text.split(listener)
             
             print(args)
     def end_program(self):
