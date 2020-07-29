@@ -6,7 +6,10 @@ def convert(lst):
 
 class UserInput:
     def convert_input(self, args):
-        if args[0] == 'search':
+        if len(args) == None:
+            response = 'What would you like me to do sir'
+            return response
+        elif args[0] == 'search':
             if len(args) == 1:
                 response = 'what do you want to search'
                 return response
