@@ -17,7 +17,6 @@ class Event_listeners:
             except:
                 unrecognized = True
         self.unrecognized = unrecognized
-        self.listen = listen
 
     def event_listener(self):
         if self.unrecognized == False:
@@ -25,6 +24,8 @@ class Event_listeners:
                 listen = 0
             else:
                 listen = 1
+            self.listen = listen
+
 
     def event_handler(self):
         if self.listen == 0:

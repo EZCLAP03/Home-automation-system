@@ -29,9 +29,14 @@ class UserInput:
         webbrowser.open_new_tab(open_query)
 
     def open(self, app):
-        app = app.capitalize()
-        cmd = f'{app}'
+        cmd = f'{app}.exe'
         os.system(cmd) 
+        print(cmd)
+        self.cmd = cmd
+    
+    def close(self):
+        terminate(self.cmd)
+        
 
 
         
