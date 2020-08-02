@@ -36,7 +36,9 @@ class UserInput:
     
     def close(self):
         terminate(self.cmd)
-        
+    
+    def lights(self):
+        pass
 
 
         

@@ -2,6 +2,8 @@ import speech_recognition as sr
 import win32com.client as wincl
 import commands as cm
 
+comms = cm.UserInput()
+
 class Event_listeners:
     def __init__(self):
         r = sr.Recognizer()
@@ -31,15 +33,14 @@ class Event_listeners:
         if self.listen == 0:
             args = self.text.split('jarvis')
             output = cm.convert(args)
-            comms = cm.UserInput()
             comms.convert_input(output)
         else:
             return 1
 
     def end_program(self):
-        if self.listen == 0:
-            if self.text.startswith('exit'):
-                exit()
+        if self.text.startswith('exit'):
+            comms.close()
+            exit()
 
 run = True
 while True:
