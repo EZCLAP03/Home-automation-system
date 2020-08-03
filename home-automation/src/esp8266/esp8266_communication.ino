@@ -1,11 +1,13 @@
+//stolen from the example library and tuned it to support my needs
+
 #include <EEPROM.h>
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <Wire.h>
  
 // Connect to the WiFi
-const char* ssid = "Lenovo K6 Note";
-const char* password = "harisaiiscool";
+const char* ssid = "ssid";
+const char* password = "my psswd";
 const char* mqtt_server = "DESKTOP-ERR771K";
  
 WiFiClient espClient;
