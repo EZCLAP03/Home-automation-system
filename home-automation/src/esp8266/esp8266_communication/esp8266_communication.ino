@@ -6,9 +6,9 @@
 #include <Wire.h>
  
 // Connect to the WiFi
-const char* ssid = "ssid";
-const char* password = "my psswd";
-const char* mqtt_server = "DESKTOP-ERR771K";
+const char* ssid = "Lenovo K6 NOTE";
+const char* password = "harisaiiscool";
+const char* mqtt_server = "192.168.0.108";
  
 WiFiClient espClient;
 PubSubClient client(espClient);
