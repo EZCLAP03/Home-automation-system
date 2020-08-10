@@ -30,17 +30,23 @@ class Event_listeners:
 
 
     def event_handler(self):
-        if self.listen == 0:
-            args = self.text.split('jarvis')
-            output = cm.convert(args)
-            comms.convert_input(output)
+        if hasattr(Event_listeners, 'listen'):
+            if self.listen == 0:
+                args = self.text.split('jarvis')
+                output = cm.convert(args)
+                comms.convert_input(output)
+            else:
+                return 1
         else:
-            return 1
+            print('what is that')
 
     def end_program(self):
-        if self.text.startswith('exit'):
-            comms.close()
-            exit()
+        if hasattr(Event_listeners, 'listen'):
+            if self.text.startswith('exit'):
+                comms.close()
+                exit()
+        else:
+            print('what is that')
 
 run = True
 while True:
