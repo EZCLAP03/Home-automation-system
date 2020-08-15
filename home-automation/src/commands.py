@@ -2,6 +2,7 @@ import webbrowser
 import win32com.client as wincl
 import os
 import requests, json
+import calendar
 
 
 def convert(lst): 
@@ -47,6 +48,10 @@ class UserInput:
     def lights(self):
         pass
     
+    def calendar(self, date):
+        date = date.split('/')
+        event = calendar.TextCalendar(calendar)
+
     def weather(self):
         BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
         CITY = "Hyderabad"
