@@ -7,10 +7,13 @@ import requests, json
 def convert(lst): 
     return ([i for item in lst for i in item.split()]) 
 
+def end_program(self):
+    comms.close()
+    exit()
 class UserInput:
     def convert_input(self, args):
         if len(args) == None:
-            response = 'What would you like me to do sir'
+            response = 'What would you like me to do human'
             return response
         elif args[0] == 'search':
             if len(args) == 1:
@@ -24,6 +27,9 @@ class UserInput:
         elif args[0] == 'open':
             con = UserInput()
             con.open(args[1])
+        elif args[0] == 'exit':
+            end_program()
+
 
     def search(self, param_query):
         open_query = f"https://www.google.com/search?q={param_query}"
@@ -61,6 +67,7 @@ class UserInput:
             , Pressure: {pressure}, Weather Report: {report[0]['description']} ")
         else:
             return "Error in the HTTP request"
+
 
 
         
