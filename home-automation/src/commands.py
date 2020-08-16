@@ -6,7 +6,8 @@ import calendar
 import imaplib
 import email
 from email.header import decode_header
-
+import pafy
+import vlc
 
 class UserInput:
     def convert_input(self, args):
@@ -27,8 +28,16 @@ class UserInput:
             exit()
         elif args[0] == 'inbox':
             inbox_invoker()
-
-
+        elif args[0] == 'play':
+            if args[1] == 'stop':
+                music_audio.player.stop()
+            elif args[1] == '':
+                music_audio()
+            elif args[1] == 'pause':
+                music_audio.player.pause()
+            elif args[1] == 'resume':
+                music_audio.player.resume()
+    
 def search(param_query):
     open_query = f"https://www.google.com/search?q={param_query}"
     webbrowser.open_new_tab(open_query)
@@ -119,6 +128,20 @@ def inbox_invoker():
             print("="*100)
     imap.close()
     imap.logout()
+
+def music_audio():
+    url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    video = pafy.new(url)
+    best = video.getbest()
+    playurl = best.url
+
+    Instance = vlc.Instance()
+    player = Instance.media_player_new()
+    Media = Instance.media_new(playurl)
+    Media.get_mrl()
+    player.set_media(Media)
+    player.play()
+
 
 
         
