@@ -4,9 +4,9 @@
 #include <Wire.h>
 
 // Connect to the WiFi
-const char* ssid = "aathi";
-const char* password = "00006666";
-const char* mqtt_server = "192.168.43.204";
+const char* ssid = "i aint giving ssid";
+const char* password = "not the password as well";
+const char* mqtt_server = "nope";
  
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -57,7 +57,7 @@ void reconnect() {
  while (!client.connected()) {
  Serial.print("Attempting MQTT connection...");
  // Attempt to connect
- if (client.connect("ESP8266 Client")) {
+ if (client.connect("ESP8266Client")) {
   Serial.println("connected");
   // ... and subscribe to topic
   client.subscribe("ledStatus");
