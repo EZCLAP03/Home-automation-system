@@ -49,9 +49,6 @@ def open(app):
     print(cmd)
     self.cmd = cmd
     
-def close():
-    terminate(self.cmd)
-    
 def lights():
     pass
     
@@ -141,7 +138,7 @@ def music_audio():
     Media = Instance.media_new(playurl)
     Media.get_mrl()
     player.set_media(Media)
-    player.play()
+    player.AudioPlayCb()
 
 
 
