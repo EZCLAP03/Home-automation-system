@@ -29,14 +29,15 @@ class UserInput:
         elif args[0] == 'inbox':
             inbox_invoker()
         elif args[0] == 'play':
-            if args[1] == 'stop':
-                music_audio.player.stop()
-            elif args[1] == '':
+            if len(args) == 1:
                 music_audio()
-            elif args[1] == 'pause':
-                music_audio.player.pause()
-            elif args[1] == 'resume':
-                music_audio.player.resume()
+            if len(args) == 2:
+                if args[1] == 'stop':
+                    music_audio.player.stop()
+                elif args[1] == 'pause':
+                    music_audio.player.pause()
+                elif args[1] == 'resume':
+                    music_audio.player.resume()
     
 def search(param_query):
     open_query = f"https://www.google.com/search?q={param_query}"
