@@ -2,6 +2,7 @@ import speech_recognition as sr
 import win32com.client as wincl
 import random
 import commands as cm
+import pyttsx3
 
 comms = cm.UserInput()
 
@@ -44,9 +45,8 @@ while True:
     p = Event_listeners()
     p.event_listener()
     p.event_handler()
+    
 
-            
-
-
-
-
+    engine = pyttsx3.init()
+    engine.say(self.response)
+    engine.runAndWait()

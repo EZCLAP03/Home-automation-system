@@ -8,16 +8,17 @@ import email
 from email.header import decode_header
 import pafy
 import vlc
+import time
 
 class UserInput:
     def convert_input(self, args):
         if len(args) == None:
             response = 'What would you like me to do human'
-            return response
+            self.response = response
         elif args[0] == 'search':
             if len(args) == 1:
                 response = 'what do you want to search'
-                return response
+                self.response = response 
             else:
                 query = args[1]
                 response = (f'Ok searching {args[1]}.')
@@ -133,18 +134,12 @@ def music_audio():
     best = video.getbest()
     playurl = best.url
 
-    Instance = vlc.Instance()
-    player = Instance.media_player_new()
-    Media = Instance.media_new(playurl)
+    instance = vlc.Instance()
+    player = instance.media_player_new()
+    Media = instance.media_new(playurl)
     Media.get_mrl()
     player.set_media(Media)
     player.AudioPlayCb()
 
-
-
-        
-        
-
-        
-    
-        
+def alarm(time):
+    pass 
